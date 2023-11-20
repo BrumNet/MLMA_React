@@ -4,7 +4,6 @@ import Home from './pages/home';
 import Footer from './components/footer'
 import Check from './pages/check.js'
 import Agents from './pages/agents.js'
-import MyTickets from './pages/yourtickets.js'
 import Pay from './pages/pay.js'
 import {createBrowserRouter} from "react-router-dom";
  
@@ -14,7 +13,7 @@ import {createBrowserRouter} from "react-router-dom";
       element: <>
       <div className="h-screen">
         <Header/>
-        <Home className/>
+        <Home/>
         <Footer/>
       </div>
       </>,

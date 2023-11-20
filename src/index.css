@@ -4,13 +4,13 @@
 
 @layer components {
   .card {
-    @apply bg-sky-400 p-9 w-4/6 place-self-center rounded-lg;
+    @apply bg-sky-400 p-6 md:w-4/6 sm:w-5/6 m-3 place-self-center rounded-lg;
   }
   .input{
-    @apply border-2 rounded h-10 w-64 mb-3;
+    @apply border-2 rounded h-10 md:w-64 sm:w-full mb-3;
   }
   .button{
-    @apply bg-black text-white px-4 py-2 rounded mx-6;
+    @apply bg-black text-white px-4 py-2 rounded mr-6;
   }
   body{
     /*@apply bg-black;*/

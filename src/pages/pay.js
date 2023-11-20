@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"; 
 import { useState } from "react";
+import { Arrow } from "../assets/arrow";
 
 export default function CheckPay (){
     
@@ -24,12 +25,12 @@ export default function CheckPay (){
         }
       }
     const customer = {
-        "firstName": "example",
-        "lastName": "example",
-        "phoneNumber": "example"
+        "firstName": "example",//shouldn't it be passed via the ussd backend?
+        "lastName": "example",//shouldn't it be passed via the ussd backend?
+        "phoneNumber": "example"//
     }
 
-    const purchase = {
+    const purchase = {//how do I pass customer's number?
         "customerId": "c7fe6c0d-a028-3abd-8e96-b311aeb9eedc",//generate uuid
         "eventId": "53cc4db5-43d7-3569-a51c-1d76ac6f278e",//get from db
         "ticketType": {
@@ -47,8 +48,9 @@ export default function CheckPay (){
         }
         }
        
-    return <div class=" h-4/5 grid">
+    return <div class=" h-4/5 grid"> 
             <div class="card">
+                <p className=" text-lg font-bold">Purchase Tickets</p>
             {
                 renderSwitch(page_number)
             }
@@ -58,7 +60,7 @@ export default function CheckPay (){
     function selectOpt () {
         return <><div class="p-6">
         <div>
-            <Link to="/"><img class="float-right" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+" /></Link>
+            <Link to="/"><Arrow/></Link>
         </div>
         </div>
         <div class="clear-both text-lg">Select Preferred Option</div>
@@ -72,12 +74,12 @@ export default function CheckPay (){
     function buyforself () {
         return <><div class="p-6">
         <div onClick={()=>{changeNumber(0)}}>
-            <img class="float-right" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+" />
+            <Arrow/>
         </div>
         </div>
         <div class="clear-both text-lg">Buy For Yourself</div>
         <br/>
-        <input class="input ml-4" placeholder="Enter Your Phone Number"/>
+        <input class="input" placeholder="Enter Your Phone Number"/>
         <br/><br/>
         <button type="button" class="button float-right" onClick={()=>{changeNumber(3)}}>Submit</button>
         <br/><br/>
@@ -88,12 +90,12 @@ export default function CheckPay (){
     function buyforsomeone () {
         return <><div class="p-6">
         <div onClick={()=>{changeNumber(0)}}>
-            <img class="float-right" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+" />
+            <Arrow/>        
         </div>
         </div>
-        <div class="clear-both text-lg">Buy For Yourself</div>
+        <div class="clear-both text-lg">Buy For Others</div>
         <br/>
-        <div class="ml-6">
+        <div class="">
         <input class="input" placeholder="Enter Your Phone Number"/>
         <p class="text-sm">Payment prompt will be sent to this number</p>
         <br/>
@@ -109,12 +111,12 @@ export default function CheckPay (){
     function numberOfTickets() {
         return <><div class="p-6">
         <div onClick={()=>{changeNumber(2)}}>
-            <img class="float-right" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+" />
+            <Arrow/>
         </div>
         </div>
         <div class="clear-both text-lg">Enter Number Of MLMA Tickets</div>
         <br/>
-        <input class="input ml-4" placeholder="Enter Number Of Tickets To Purchase"/>
+        <input class="input" placeholder="Enter Number Of Tickets To Purchase"/>
         <br/><br/>
         <button type="button" class="button float-right" onClick={()=>{changeNumber(4)}}>Submit</button>
         <br/><br/> 
@@ -124,7 +126,7 @@ export default function CheckPay (){
     function choosecurrency () {
         return <><div class="p-6">
         <div onClick={()=>{changeNumber(3)}}>
-            <img class="float-right" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+" />
+            <Arrow/>
         </div>
         </div>
         <div class="clear-both text-lg">Choose Currency</div>
@@ -137,9 +139,12 @@ export default function CheckPay (){
 
     function promptSent() {
         return <> 
+        <br/>
         <p class="text-lg">Almost Done!</p>
-        <br/><br/>
+        <br/> 
         <p>Payment prompt sent to XXXXXXXXX</p>
-        <br/><br/></>
+        <br/><br/>
+        <Link to="/"><button className="button">Go Home</button></Link>
+        </>
     }
 }

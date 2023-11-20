@@ -1,9 +1,9 @@
 import { Outlet, Link } from "react-router-dom"; 
 
 export default function Home (){
- return <div class="container grid grid-cols-1 gap-4 place-content-center px-5 h-4/5">
+ return <div class="grid grid-cols-1 gap-4 place-content-center w-full px-10 h-4/5 bg-sky-100">
  <div class="mb-14"> 
-     <div class="uppercase">
+     <div class="uppercase text-lg">
        Events In the Palm of Your Hand
      </div>
  </div>

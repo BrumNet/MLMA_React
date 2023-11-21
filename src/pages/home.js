@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom"; 
+import { Link } from "react-router-dom"; 
 
 export default function Home (){
  return <div class="grid grid-cols-1 gap-4 place-content-center w-full px-10 h-4/5 bg-sky-100">

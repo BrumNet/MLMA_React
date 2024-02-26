@@ -1,6 +1,6 @@
 import axios, * as others from 'axios';
 
-const baseurl = "https://events-staging.tech231apps.net";
+const baseurl = "https://cors-anywhere-qk47.onrender.com/https://events-staging.tech231apps.net";
 
 //creating customer
 export const createCustomer = async (customer) => {
@@ -17,7 +17,8 @@ export const createCustomer = async (customer) => {
 export const getCustomer = async (phone) =>{
   return await axios.get(baseurl + '/api/v1/customers/'+ phone, {
     headers: {
-      'X-API-KEY': process.env.REACT_APP_APIKEY
+      'X-API-KEY': process.env.REACT_APP_APIKEY,
+      'Host': baseurl
     }
   }
 )
